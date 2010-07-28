@@ -1,0 +1,80 @@
+<html>
+<head>
+	<title>Archipelago! Game Server</title>
+	<script type='text/javascript' src='http://code.jquery.com/jquery-1.4.2.min.js' />
+	<script type='text/javascript'>
+		function createBoard()
+		{
+			var table = $("#board");
+			for (var i = 0; i  < 15; ++i) {
+				var row = $("<tr/>");
+				for (var j = 0; j < 15; ++j) {
+					var cell = $("<td></td>");
+					if ((i+j) % 2 == 0) cell.addClass("even"); else cell.addClass("odd");
+					row.append(cell);
+				}
+				table.append(row);
+			}
+		}
+		$(document).ready(function () {
+			createBoard();
+			$("a#clear").click(function() { $("td").text(""); });
+			$("a#test").click(function() {
+				$.post("/board", { id : 500 }, function(data) {
+					/*window.alert(data);*/
+					var table = document.getElementById("board");
+					for (var i = 0, row; row = table.rows[i]; i++) {
+						for (var j = 0, col; col = row.cells[j]; j++) {
+							/*window.alert(data[i][j]);*/
+							if (data[i][j] != null) {
+								$(col).text(data[i][j]);
+							} else {
+								$(col).text("");
+							}
+						}
+					}
+				}, "json");
+			});
+		});
+	</script>
+	<style type="text/css">
+		body {
+			font-family: Calibri;
+		}
+		#board {
+			font-family:  Verdana;
+			font-size: 1.2em;
+			/*border-collapse: collapse;*/
+		}
+		tr, td {
+			width: 1.8em;
+			height: 1.8em;
+			padding: 0;
+			margin: 0;
+			text-align: center;
+		}
+		.even {
+			background-color: #8ed;
+			background-color: #eee;
+		}
+		.odd {
+			background-color: #f8e;
+			background-color: #fff;
+		}
+	</style>
+</head>
+<body>
+	<h1>Welcome to Archipelago!</h1>
+	<p>
+		This is the placeholder page for what will be the Archipelago online game system. Original concept created
+		by KirarinSnow.
+	</p>
+	<p>
+		<table id='board'>
+		</table>
+	</p>
+	<p>
+		<a id="test" href='javascript:void'>Test JSON</a>. <a id="clear" href="javascript:void">Clear board</a>.
+	</p>
+</body>
+</html>

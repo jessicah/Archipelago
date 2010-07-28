@@ -1,0 +1,9 @@
+Archipelago, a.k.a War Scrabble
+===============================
+
+This is an ocaml implementation (well, will be!) of Archipelago, a Scrabble
+like game invented by KirarinSnow.
+
+Rules for the game can be found at:
+http://www.kirarinland.com/archipelagorules2.txt
+
