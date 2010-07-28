@@ -23,6 +23,25 @@ let is_valid_word word =
 		end
 	in search 0 (Array.length dictionary - 1)
 
+let letters = [
+		1, "JKQXZ"; 2, "_BCFHMPVWY";
+		3, "G"; 4, "DLSU"; 6, "NRT";
+		8, "O"; 9, "AI"; 12, "E"
+	]
+
+let make_letters () =
+	(* returns a list of chars of the scrabble letter set *)
+	let queue = Queue.create () in
+	List.iter begin fun (count, chars) ->
+		(* foreach char in chars, repeat count times, and add to newlist *)
+		String.iter begin fun ch ->
+			for i = 1 to count do
+				Queue.add ch queue
+			done
+		end chars
+	end letters;
+	List.sort compare (Queue.fold begin fun lst ch -> ch :: lst end [] queue)
+	
 let board : Game_types.board = Array.make_matrix 15 15 None
 
 type person = {
@@ -52,6 +71,8 @@ let players = Queue.create ()
 
 let next_id = ref (Random.int 1000)
 
+let default_transform p = p
+
 let enter name =
 	incr next_id;
 	people := {
@@ -66,16 +87,16 @@ let join id =
 	(* find the person who wants to join *)
 	let person = List.find (fun p -> p.id = id) !people in
 	(* and make sure they're not already joined *)
-	if Queue.fold (fun b p -> b || p.person.id = id) false players then
-		raise Already_in_game;
+	if Queue.fold (fun b p -> b || p.person.id = id) false players
+		then raise Already_in_game;
 	(* finally, add them to the game *)
 	Queue.add {
 		person = person;
 		rack = [];
-		bag = [];
+		bag = make_letters ();
 		words = [];
-		stats = { played: 0; captured: 0; lost: 0 }
-	} players
+		stats = { played = 0; captured = 0; lost = 0 }
+	} players;;
 
 (* just a lil helper function for testing :) *)
 let update_board () =
@@ -94,5 +115,4 @@ let update_board () =
 			board.(j).(y) <- Some word.[y-i]
 		done
 
-let get_board id : Types.board =
-		
+let get_board id : Game_types.board = board
