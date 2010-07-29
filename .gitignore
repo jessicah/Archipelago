@@ -1,0 +1,7 @@
+*.cmx
+*.cmi
+*.cmo
+*.o
+archipelago
+archipelago.byte
+
