@@ -21,7 +21,6 @@ let play_word id json out = respond_error out
 
 let send_message id json out = respond_error out
 
-
 let callback (req : req) out =
 	let invoke f =
 		let id = int_of_string (req#param "id") in
@@ -39,6 +38,8 @@ let callback (req : req) out =
 		| "/play" -> invoke play_word
 		| "/msg" -> invoke send_message
 		| "/" -> respond_file "index.html" out
+		| "/game.js" -> respond_file "game.js" out
+		| "/style.css" -> respond_file "style.css" out
 		| _ -> respond_error out
 
 (* configures and starts up our lil http daemon *)

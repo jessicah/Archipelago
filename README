@@ -7,3 +7,18 @@ like game invented by KirarinSnow.
 Rules for the game can be found at:
 http://www.kirarinland.com/archipelagorules2.txt
 
+Breakdown of functionality and stuff:
+
+- dictionary
+  o load a dictionary (e.g. sowpods)
+  o check for valid words
+	o optional: load a new dictionary
+
+- game engine
+  o create a game instance
+	o join a game
+	o play a word
+	o exchange tiles
+	o collect statistics
+
+- web server

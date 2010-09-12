@@ -1,27 +1,10 @@
 
 (* Archipelago game engine *)
 
+open Dictionary
+open Board
+
 let () = Random.init (Unix.getpid () lxor (int_of_float (Unix.time ())))
-
-let dictionary =
-	let arr = Array.make 267750 "" in
-	let dict = open_in "sowpods.txt" in
-	for i = 0 to Array.length arr - 1 do
-		arr.(i) <- input_line dict
-	done;
-	close_in dict;
-	arr
-
-let is_valid_word word =
-	let rec search low high =
-		if high < low then false
-		else begin
-			let mid = low + ((high - low) / 2) in
-			if dictionary.(mid) > word then search low (mid-1)
-			else if dictionary.(mid) < word then search (mid+1) high
-			else true
-		end
-	in search 0 (Array.length dictionary - 1)
 
 let letters = [
 		1, "JKQXZ"; 2, "_BCFHMPVWY";
@@ -98,7 +81,7 @@ let join id =
 		stats = { played = 0; captured = 0; lost = 0 }
 	} players;;
 
-(* just a lil helper function for testing :) *)
+(*(* just a lil helper function for testing :) *)
 let update_board () =
 	let word = dictionary.(Random.int (Array.length dictionary)) in
 	let len = String.length word in
@@ -113,6 +96,6 @@ let update_board () =
 	else
 		for y = i to i + len - 1 do
 			board.(j).(y) <- Some word.[y-i]
-		done
+		done*)
 
 let get_board id : Game_types.board = board
