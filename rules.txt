@@ -1,0 +1,40 @@
+Archipelago Rules!
+
+For 2-4 players.
+
+Materials: 
+
+A 15x15 rectangular grid board (or a standard Scrabble board).
+One bag of letter tiles (if players share tiles), or one separate bag of tiles for each player. (A standard Scrabble tileset works nicely.)
+A word list that all players can agree on. 
+A method to keep track of active words for each player.
+
+Setup:
+
+Determine an order for players. In each round until the game finishes, each player takes a turn in order.
+
+Players typically sit around the board, each having their own orientation. There is no absolute orientation, and each player plays their tiles in their own orientation. Each player's home row is the bottom row of their view of the board, the closest row to the player. Essentially each player plays tiles on their own board, subject only to rules constraining the formation of words on their board, but actions may have effects on other players' boards.
+
+Each player adds to their rack seven (or whatever) tiles from their own bag or the communal bag. Players do not see other players' tiles.
+
+Gameplay:
+
+During a turn, a player may choose one of three options: play a word, exchange tiles, or pass.
+
+To play a word, a player identifies a word on the word list and a contiguous set of cells on the board in which the word is to be played. If the play is legal (according to Scrabble rules, considering only the player's own tiles), the player fills in any cells not already occupied by their own tiles by transferring the corresponding tiles from their rack to the board to spell out the word. New words that are formed by this procedure (according to Scrabble rules) are added to the player's list of active words, including ones that extend previously played words. Any opponents' tiles in these cells are captured; any word containing such a tile is removed from the owner's list of active words, and all tiles forming part of a removed word, and no other words, are removed from the board.
+
+
+Any new word formed from the play is added to the player's list of active words. Any active word on an opponent's list that contains a captured tile is considered captured. These words are removed from their respective lists. Any tile that is part of a captured word is removed from the board, unless it forms a part of a non-captured word.
+
+
+
+
+A play is legal if all of the following conditions hold: (a) the word appears in the word list; (b) the set of cells on which the word is to be played (the set of target cells) occupies a single row or column on the board; (c) the target cells do not go beyond the boundaries of the board; (d) the number of target cells is equal to the number of letters in the word; (e) the target cells are contiguous; (f) from the player's perspective, the letters in the word correspond to successive target cells, in left-to-right or top-to-bottom order; (g) if one of the player's own tiles occupies any target cell, the corresponding letter in the word to be played must match the letter on the tile (this restriction does not apply to other players' tiles); (h) 
+
+
+Any new word formed from the play is added to the player's list of active words. Any active word on an opponent's list that contains a captured tile is considered captured. These words are removed from their respective lists. Any tile that is part of a captured word is removed from the board, unless it forms a part of a non-captured word.
+
+Each player's first word must be played horizontally along the player's home row. The word must occupy the center cell in the home row.
+
+A player is eliminated when they no longer have any active words. The winner is the last player to remain.
+
